@@ -2,17 +2,17 @@ package uiTesting;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class BackgroundImageJPanel extends JPanel{
+public class BgImgJPanel extends JPanel{
 	
 	private Image bgImage;
 	
-	public BackgroundImageJPanel (String bg){
-		bgImage = Toolkit.getDefaultToolkit().createImage(bg);
+	public BgImgJPanel (String bg){
+		bgImage = new ImageIcon(bg).getImage();
 	}
 
 	@Override

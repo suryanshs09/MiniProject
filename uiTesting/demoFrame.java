@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JPasswordField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class demoFrame extends JFrame {
@@ -45,8 +47,8 @@ public class demoFrame extends JFrame {
 	public demoFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1200, 700);
-		contentPane = new BackgroundImageJPanel("S:\\Suryansh\\Downloads\\appBgImagesLogin2.png");
-		//contentPane.setBackground(Color.BLUE);
+		contentPane = new BgImgJPanel("S:\\Suryansh\\Downloads\\appBgImagesLogin2.png");
+		contentPane.setBackground(new Color(2,22,49,255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -92,6 +94,12 @@ public class demoFrame extends JFrame {
 		contentPane.add(passTxt);
 		
 		JLabel forgetPassLabel = new JLabel("Forgot Password?");
+		forgetPassLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(contentPane, "Forget Password Clicked, button: " + e.getButton(),"Forget Password", JOptionPane.QUESTION_MESSAGE);
+			}
+		});
 		forgetPassLabel.setForeground(Color.WHITE);
 		forgetPassLabel.setFont(new Font("Poppins Medium", Font.PLAIN, 15));
 		forgetPassLabel.setBounds(537, 471, 134, 23);
