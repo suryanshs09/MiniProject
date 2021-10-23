@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Color;
 
 import javax.swing.JButton;
@@ -45,9 +47,11 @@ public class demoFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public demoFrame() {
+		Image icon = Toolkit.getDefaultToolkit().getImage("S:\\Suryansh\\programs\\MiniProject\\BackgroundImages\\logoIcon.png"); 
+		setIconImage(icon);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1200, 700);
-		contentPane = new BgImgJPanel("S:\\Suryansh\\Downloads\\appBgImagesLogin2.png");
+		contentPane = new BgImgJPanel("S:\\Suryansh\\programs\\MiniProject\\BackgroundImages\\loginPages.png");
 		contentPane.setBackground(new Color(2,22,49,255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -70,6 +74,7 @@ public class demoFrame extends JFrame {
 			}
 		});
 		loginBtn.setBounds(537, 540, 134, 35);
+		loginBtn.setFocusPainted(false);
 		contentPane.add(loginBtn);
 		
 		JLabel emailLabel = new JLabel("E M A I L");
@@ -97,7 +102,9 @@ public class demoFrame extends JFrame {
 		forgetPassLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(contentPane, "Forget Password Clicked, button: " + e.getButton(),"Forget Password", JOptionPane.QUESTION_MESSAGE);
+				//JOptionPane.showMessageDialog(contentPane, "Forget Password Clicked, button: " + e.getButton(),"Forget Password", JOptionPane.QUESTION_MESSAGE);
+				JFrame forgetPass = new forgetPassDemo();
+				forgetPass.setVisible(true);
 			}
 		});
 		forgetPassLabel.setForeground(Color.WHITE);
